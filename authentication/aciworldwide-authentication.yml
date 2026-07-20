@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com/tutorials/integration-guide/authentication
+docs: https://docs.aciworldwide.com
+summary:
+  types: [http]
+  api_key_in: [header, body]
+  oauth2_flows: []
+  notes: >-
+    Access is authorized by a bearer access token plus a channel entity
+    identifier (entityId). There is no OAuth2 authorization/token flow — the
+    bearer token is a long-lived credential issued per channel from the merchant
+    portal. entityId is submitted as a request parameter (form body or query),
+    the access token as an HTTP Authorization: Bearer header.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  parameter: Authorization
+  description: >-
+    Access token sent as "Authorization: Bearer {token}" on every request.
+    Issued per channel; separate tokens for the test (eu-test.oppwa.com) and
+    live (eu-prod.oppwa.com) environments.
+  sources: [docs]
+- name: entityId
+  type: apiKey
+  in: body
+  parameter: entityId
+  description: >-
+    Channel entity identifier that scopes the request to a specific merchant
+    channel/currency configuration. Sent as the "entityId" form parameter (or
+    query string). Distinct test and live entityId values.
+  sources: [docs]
