@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com/integrations
+description: >-
+  First-party client libraries for the ACI Open Payment Platform (OPPWA). ACI
+  distributes native mobile SDKs (the com.oppwa.mobile family) for in-app
+  payment collection; server-side integration is documented as direct
+  server-to-server REST calls rather than a published server SDK on a public
+  registry. Third-party/community wrappers exist but are marked official:false.
+packages:
+- language: swift
+  platform: ios
+  registry: vendor
+  name: com.oppwa.mobile (iOS Mobile SDK)
+  url: https://docs.aciworldwide.com/integrations/mobile
+  install: Add the ACI/OPPWA iOS Mobile SDK per the mobile integration guide.
+  official: true
+- language: java
+  platform: android
+  registry: vendor
+  name: com.oppwa.mobile (Android Mobile SDK)
+  url: https://docs.aciworldwide.com/integrations/mobile
+  install: Add the ACI/OPPWA Android Mobile SDK per the mobile integration guide.
+  official: true
+- language: javascript
+  platform: web
+  registry: vendor
+  name: COPYandPAY widget (paymentWidgets.js)
+  url: https://docs.aciworldwide.com/integrations/widget
+  install: Load the hosted paymentWidgets.js from the OPPWA host with your checkout id.
+  official: true
+- language: javascript
+  registry: npm
+  name: aci (gajus/aci)
+  url: https://github.com/gajus/aci
+  install: npm install aci
+  official: false
+  note: Community server-to-server wrapper, not maintained by ACI.

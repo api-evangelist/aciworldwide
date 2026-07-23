@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.aciworldwide.com/reference
+  notes: API version is carried in the request path (/v1/...).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No public RFC 8594 Sunset/Deprecation header policy is documented. Version
+    lifecycle is managed via the versioned path and merchant communications.
+sla:
+  url: null
+  uptime_target: null
+  notes: SLA/uptime commitments are handled under commercial merchant agreements.
+status_page: null
+status_page_notes: >-
+  No public status/uptime page found (status.aciworldwide.com does not resolve).
+deprecated_operations: []

@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com/integrations
+description: >-
+  Client-side, embeddable payment surfaces for the ACI Open Payment Platform.
+  These are prebuilt/hosted UI components (distinct from the server-side REST
+  integration) that render the payment form and handle sensitive card entry so
+  the merchant stays out of PCI scope.
+families:
+- name: COPYandPAY
+  kind: hosted-widget
+  loader: paymentWidgets.js
+  description: >-
+    A prebuilt, PCI-friendly payment form embedded via a hosted JavaScript
+    widget keyed to a server-created checkout id. Renders card and alternative
+    payment method entry with built-in validation and 3-D Secure handling.
+  docs: https://docs.aciworldwide.com/integrations/widget
+- name: Pay by Link
+  kind: hosted-page
+  description: >-
+    Merchant-generated hosted payment links/pages for collecting a payment
+    without a custom checkout integration.
+  docs: https://docs.aciworldwide.com
+- name: Mobile SDK payment UI
+  kind: native-ui
+  description: >-
+    The com.oppwa.mobile iOS/Android SDKs provide native prebuilt payment-entry
+    screens for in-app checkout. Cross-referenced in packages/.
+  docs: https://docs.aciworldwide.com/integrations/mobile

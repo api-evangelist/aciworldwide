@@ -1,0 +1,74 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com/reference/resultCodes
+format: aci-result-codes
+envelope_field: result.code
+description: >-
+  ACI OPPWA returns a dotted result code (aaa.bbb.ccc) on every response. The
+  prefix classifies the outcome. Codes beginning 000 are success/pending; all
+  other prefixes are rejections or errors. A REJECTED/FAILED status yields NOK;
+  all other statuses yield ACK. This catalog covers the API/processing-level
+  code families; issuer decline codes are enumerated separately in
+  errors/aciworldwide-decline-codes.yml.
+groups:
+- prefix: 000.000 / 000.100.1 / 000.3 / 000.400.[12]
+  class: success
+  meaning: Transaction successfully authorized/captured (or two-step succeeded).
+  action: No further action required.
+  examples:
+  - code: '000.000.000'
+    title: Transaction succeeded
+  - code: '000.100.110'
+    title: Request successfully processed in Merchant-in-Integrator test mode
+  - code: '000.300.000'
+    title: Two-step transaction succeeded
+- prefix: 000.200 / 800.400.5 / 100.400.500
+  class: pending
+  meaning: Transaction awaiting completion or external (non-instant) confirmation.
+  action: Do not blindly retry; monitor status/webhooks — may stay pending for days.
+  examples:
+  - code: '000.200.000'
+    title: Transaction pending
+  - code: '800.400.500'
+    title: Waiting for confirmation of non-instant payment
+- prefix: 100.400 / 100.380 / 800.300 / 800.200
+  class: rejected-risk
+  meaning: Rejected by fraud/risk, blacklist, or GateKeeper scoring.
+  action: Review risk scoring rules and provider/blacklist configuration.
+  examples:
+  - code: '100.400.121'
+    title: Account blacklisted
+  - code: '100.400.140'
+    title: Transaction declined by GateKeeper
+  - code: '800.300.301'
+    title: IP blacklisted
+- prefix: 600.200 / 500.100 / 200.100 / 100.150 / 700.100
+  class: rejected-validation
+  meaning: Invalid data, misconfiguration, or invalid references.
+  action: Correct request parameters, credentials, or integration configuration.
+  examples:
+  - code: '100.100.303'
+    title: Card expired
+  - code: '600.200.100'
+    title: Invalid Payment Method
+  - code: '700.100.100'
+    title: Reference id does not exist
+- prefix: 800.100
+  class: rejected-bank
+  meaning: Issuer/bank hard decline.
+  action: Do not retry; advise customer to use another payment method.
+  detail: errors/aciworldwide-decline-codes.yml
+  examples:
+  - code: '800.100.153'
+    title: Transaction declined (invalid CVV)
+  - code: '800.100.160'
+    title: Transaction declined (card blocked)
+- prefix: 900.1 / 900.2 / 900.3 / 999.999 / 600.1
+  class: system-error
+  meaning: Communication/connector timeout or undefined acquirer error.
+  action: Retry or escalate to support; result may be uncertain.
+  examples:
+  - code: '900.100.300'
+    title: Timeout, uncertain result
+  - code: '999.999.999'
+    title: Undefined connector/acquirer error

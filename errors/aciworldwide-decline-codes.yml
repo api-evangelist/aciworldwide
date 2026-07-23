@@ -1,0 +1,63 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com/reference/resultCodes
+envelope_field: result.code
+description: >-
+  Issuer/bank decline codes for ACI OPPWA card transactions. These are the
+  hard-decline family (prefix 800.100.x) plus adjacent risk/blacklist declines.
+  They are returned on the result.code field alongside a human-readable
+  result.description. Complements the broader API result-code catalog in
+  errors/aciworldwide-result-codes.yml.
+masking_note: >-
+  Generic issuer decline reasons are typically masked to the cardholder as a
+  single "transaction declined, contact your bank" message; the specific code is
+  surfaced only to the merchant/integrator.
+decline_codes:
+- code: '800.100.100'
+  meaning: Transaction declined (general/unspecified by issuer)
+  action: Advise customer to contact issuer or use another card.
+- code: '800.100.151'
+  meaning: Transaction declined (invalid card)
+  action: Do not retry; use another payment method.
+- code: '800.100.152'
+  meaning: Transaction declined by authorization system
+  action: Do not retry; use another payment method.
+- code: '800.100.153'
+  meaning: Transaction declined (invalid CVV)
+  action: Re-enter card security code or use another card.
+- code: '800.100.155'
+  meaning: Transaction declined (amount exceeds credit)
+  action: Advise customer of insufficient funds/limit.
+- code: '800.100.157'
+  meaning: Transaction declined (wrong expiry date)
+  action: Correct expiry date and retry.
+- code: '800.100.158'
+  meaning: Transaction declined (suspecting manipulation)
+  action: Do not retry; potential fraud.
+- code: '800.100.160'
+  meaning: Transaction declined (card blocked)
+  action: Do not retry; use another payment method.
+- code: '800.100.162'
+  meaning: Transaction declined (limit exceeded)
+  action: Advise customer of limit; retry later or use another card.
+- code: '800.100.163'
+  meaning: Transaction declined (maximum transaction frequency exceeded)
+  action: Wait and retry, or use another card.
+- code: '800.100.168'
+  meaning: Transaction declined (restricted card)
+  action: Do not retry; use another payment method.
+- code: '800.100.171'
+  meaning: Transaction declined (pick up card)
+  action: Do not retry; card flagged by issuer.
+- code: '800.100.190'
+  meaning: Transaction declined (invalid configuration data)
+  action: Review acquirer/channel configuration.
+- code: '800.200.159'
+  meaning: Account or bank details incorrect
+  action: Correct bank/account details and retry.
+- code: '800.300.101'
+  meaning: Account or user is blacklisted (card)
+  action: Do not retry; blacklisted.
+- code: '800.300.301'
+  meaning: IP blacklisted
+  action: Review risk/blacklist configuration.

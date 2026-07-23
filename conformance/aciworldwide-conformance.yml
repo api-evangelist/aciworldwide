@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.aciworldwide.com/pci-dss-v4
+standards:
+- id: pci-dss-v4
+  conforms: true
+  evidence: >-
+    ACI Worldwide publicly maintains PCI DSS v4.0 compliance across its payment
+    platforms and provides PCI compliance solutions (P2PE, tokenization).
+  source: https://www.aciworldwide.com/pci-dss-v4
+- id: ssae18-soc
+  conforms: true
+  evidence: ACI maintains SSAE 18 data-center attestation for bill presentment and payment.
+  source: https://www.aciworldwide.com
+- id: emv-3ds
+  conforms: true
+  evidence: OPPWA supports 3-D Secure (EMV 3DS) authentication as a documented capability.
+  source: https://docs.aciworldwide.com
+- id: oauth2
+  conforms: false
+  evidence: Authentication is bearer access token + entityId, not an OAuth2 flow.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use ACI dotted result codes, not application/problem+json.
+- id: json-api
+  conforms: false

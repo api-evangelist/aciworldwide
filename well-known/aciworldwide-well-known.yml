@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: probed
+source: live probes of /.well-known/* on ACI hosts
+hosts:
+- host: https://eu-prod.oppwa.com
+  documents:
+  - {path: /.well-known/security.txt, status: 0}
+  - {path: /.well-known/openid-configuration, status: 0}
+  - {path: /.well-known/oauth-authorization-server, status: 0}
+  - {path: /.well-known/api-catalog, status: 0}
+  - {path: /.well-known/ai-plugin.json, status: 0}
+- host: https://aciworldwide.com
+  documents:
+  - {path: /.well-known/security.txt, status: 0}
+  - {path: /.well-known/openid-configuration, status: 0}
+  - {path: /.well-known/oauth-authorization-server, status: 0}
+  - {path: /.well-known/api-catalog, status: 0}
+  - {path: /.well-known/ai-plugin.json, status: 0}
+- host: https://docs.aciworldwide.com
+  documents:
+  - {path: /.well-known/security.txt, status: 0}
+  - {path: /.well-known/openid-configuration, status: 0}
+  - {path: /.well-known/oauth-authorization-server, status: 0}
+  - {path: /.well-known/api-catalog, status: 0}
+  - {path: /.well-known/ai-plugin.json, status: 0}
+notes: >-
+  No /.well-known discovery documents were returned by any probed host (status 0
+  = no HTTP response / connection refused). Recorded as an honest negative
+  result; no raw files saved.

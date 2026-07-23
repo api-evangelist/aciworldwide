@@ -1,0 +1,46 @@
+# ACI Worldwide — Open Payment Platform (PAY.ON / OPPWA)
+
+> ACI Worldwide (NASDAQ: ACIW) is a global real-time payments software company. Its Open Payment Platform exposes a single unified RESTful API (the PAY.ON / OPPWA gateway) for accepting and managing electronic payments worldwide — server-to-server, the hosted COPYandPAY widget, mobile SDKs, and Pay by Link.
+
+## APIs
+- [ACI Open Payment Platform (OPPWA) REST API](https://docs.aciworldwide.com): payments, checkouts, tokenization/registrations, back-office capture/refund/reversal, 3-D Secure, risk/fraud, recurring payments, webhooks, reporting. Base URL (live) https://eu-prod.oppwa.com/v1, test https://eu-test.oppwa.com/v1.
+
+## Docs
+- [Developer Portal (Apigee)](https://aciww-production.apigee.io/)
+- [Documentation](https://docs.aciworldwide.com)
+- [API Reference](https://docs.aciworldwide.com/reference)
+- [Getting Started / Tutorials](https://docs.aciworldwide.com/tutorials)
+- [Result Codes Reference](https://docs.aciworldwide.com/reference/resultCodes)
+
+## Integration
+- [COPYandPAY hosted widget](https://docs.aciworldwide.com/integrations/widget)
+- [Server-to-server](https://docs.aciworldwide.com/integrations)
+- [Mobile SDK (iOS/Android, com.oppwa.mobile)](https://docs.aciworldwide.com/integrations/mobile)
+
+## Authentication
+- Bearer access token (Authorization: Bearer) plus a channel entityId parameter. Separate credentials per environment (test vs live). See authentication/aciworldwide-authentication.yml.
+
+## Artifacts (API Evangelist enrichment)
+- authentication/aciworldwide-authentication.yml
+- conventions/aciworldwide-conventions.yml
+- errors/aciworldwide-result-codes.yml
+- errors/aciworldwide-decline-codes.yml
+- sandbox/aciworldwide-sandbox.yml
+- lifecycle/aciworldwide-lifecycle.yml
+- conformance/aciworldwide-conformance.yml
+- security/aciworldwide-trust-center.yml
+- security/aciworldwide-domain-security.yml
+- packages/aciworldwide-packages.yml
+- components/aciworldwide-components.yml
+- asyncapi/aciworldwide-webhooks.yml
+
+## Compliance
+- [PCI DSS v4.0](https://www.aciworldwide.com/pci-dss-v4)
+- SSAE 18 (SOC) data-center attestation
+
+## Company
+- [Website](https://aciworldwide.com)
+- [Blog](https://www.aciworldwide.com/blog)
+- [Support](https://www.aciworldwide.com/support)
+- [Terms of Use](https://www.aciworldwide.com/terms-of-use)
+- [Privacy Policy](https://www.aciworldwide.com/privacy-policy)

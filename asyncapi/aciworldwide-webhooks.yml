@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+type: Webhooks
+source: https://docs.aciworldwide.com/tutorials/integration-guide/webhooks
+description: >-
+  ACI OPPWA delivers server-to-server webhook notifications instead of requiring
+  polling. A webhook is configured once (endpoint + encryption parameters) and
+  the platform pushes events when relevant state changes occur. No AsyncAPI
+  document is published by ACI, so this captures the webhook catalog as the event
+  surface (type: Webhooks).
+transport: https-post
+security:
+  payload_encryption: AES-256-GCM
+  detail: >-
+    Payloads are delivered encrypted. The initialization vector and
+    authentication tag are supplied in request headers; the body is decrypted
+    with the configured secret key and the auth tag validated for integrity
+    before parsing the JSON event.
+event_categories:
+- name: payment
+  description: Payment/transaction state changes (authorization, capture, refund, reversal, decline).
+- name: registration-token
+  description: Tokenization / stored payment credential (registration) updates.
+- name: scheduled-payment
+  description: Recurring / scheduled payment execution events.
+- name: risk-decision
+  description: Fraud/risk scoring decisions and blacklist actions.
+- name: transaction-state
+  description: General transaction state-change notifications, including confirmation of pending (non-instant) payments.
+notes: >-
+  Especially important for pending outcomes (result codes 000.200.x /
+  800.400.5x), where the final result arrives asynchronously via webhook rather
+  than in the original API response.

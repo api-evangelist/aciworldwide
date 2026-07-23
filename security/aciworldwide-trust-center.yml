@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+probe: false
+url: https://www.aciworldwide.com/pci-dss-v4
+description: >-
+  ACI Worldwide does not host a dedicated trust-center subdomain
+  (trust.aciworldwide.com does not resolve), but publicly documents its security
+  and compliance posture across product/compliance pages. Certifications below
+  are drawn from those published pages, not a self-attestation portal.
+certifications:
+- PCI DSS v4.0
+- SSAE 18 (SOC)
+evidence:
+- source: https://www.aciworldwide.com/pci-dss-v4
+  keywords: [pci dss, v4.0, compliance]
+- source: https://www.aciworldwide.com/solutions/pci-compliance-solutions
+  keywords: [pci compliance, tokenization, p2pe]

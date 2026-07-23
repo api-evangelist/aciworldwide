@@ -1,0 +1,57 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com
+docs: https://docs.aciworldwide.com/reference
+authentication:
+  style: bearer-token + entityId
+  detail: authentication/aciworldwide-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  example: https://eu-prod.oppwa.com/v1/payments
+  notes: API version is carried in the request path (e.g. /v1/payments).
+request_format:
+  content_types: [application/x-www-form-urlencoded]
+  notes: >-
+    Requests are submitted as URL-encoded form parameters (POST) rather than
+    JSON bodies. Responses are JSON.
+response_format:
+  content_types: [application/json]
+  result_envelope:
+    field: result.code
+    description: >-
+      Every response carries a structured result object with a dotted result
+      code (e.g. 000.100.110) and description. The code prefix classifies the
+      outcome as success, pending, or one of several rejection families. See
+      errors/aciworldwide-result-codes.yml and errors/aciworldwide-decline-codes.yml.
+idempotency:
+  supported: false
+  notes: >-
+    ACI OPPWA does not document a client-supplied idempotency-key header on the
+    core payments API. Duplicate protection is handled server-side per
+    merchantTransactionId; pending (000.200.x / 800.400.5x) transactions must be
+    monitored via webhooks/status rather than blindly retried.
+pagination:
+  supported: partial
+  notes: >-
+    Core payment operations are single-resource. Reporting/back-office listing
+    endpoints page results; parameters vary by report.
+tracing:
+  request_id: false
+  notes: >-
+    Transactions are correlated by the merchant-supplied merchantTransactionId
+    and the platform-assigned transaction id returned in the response.
+rate_limiting:
+  documented: false
+error_semantics:
+  format: aci-result-codes
+  detail: errors/aciworldwide-result-codes.yml
+webhooks:
+  supported: true
+  detail: asyncapi/aciworldwide-webhooks.yml
+cross_links:
+  errors: errors/aciworldwide-result-codes.yml
+  decline_codes: errors/aciworldwide-decline-codes.yml
+  lifecycle: lifecycle/aciworldwide-lifecycle.yml
+  authentication: authentication/aciworldwide-authentication.yml
+  webhooks: asyncapi/aciworldwide-webhooks.yml

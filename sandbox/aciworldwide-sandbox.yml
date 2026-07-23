@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.aciworldwide.com/tutorials/integration-guide
+docs: https://docs.aciworldwide.com
+description: >-
+  ACI OPPWA separates test and live by environment host and credential set. All
+  integration work is done against the test host with a test access token and
+  test entityId, then switched to the production host with live credentials.
+environments:
+- mode: test
+  base_url: https://eu-test.oppwa.com/
+  notes: >-
+    Sandbox environment. Uses a test access token and a test entityId. Test-mode
+    channels can force outcomes via the request "testMode" parameter
+    (EXTERNAL vs INTERNAL) so transactions are routed to a simulator or a live
+    test acquirer.
+- mode: live
+  base_url: https://eu-prod.oppwa.com/
+  notes: >-
+    Production. Requires the live access token and live entityId issued for the
+    channel. Go-live = swap host + credentials only; request/response contract
+    is identical to test.
+test_values:
+  notes: >-
+    ACI publishes environment-specific test card numbers and expected result
+    codes in the integration guide (they vary per acquirer/connector and are not
+    reproduced verbatim here to avoid staleness). Use the docs reference below to
+    obtain current test PANs, expiry, CVV, and the result code each is designed
+    to return (e.g. success vs specific 800.100.x decline).
+  reference: https://docs.aciworldwide.com/tutorials/integration-guide
+  test_mode_parameter: testMode   # EXTERNAL | INTERNAL on test channels
+cross_links:
+  result_codes: errors/aciworldwide-result-codes.yml
+  decline_codes: errors/aciworldwide-decline-codes.yml
